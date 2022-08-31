@@ -11,7 +11,10 @@ export const ImageGallery: React.FC<IImagesList> = ({
       {images.map((image) => {
         return (
           <ImageGalleryItem
-            onClick={(event) => onOpenModal(event)}
+            onClick={(event: React.MouseEvent) =>
+              //@ts-ignore
+              onOpenModal(event)
+            }
             imageSrc={image.webformatURL}
             imageAlt={image.tags}
             imageLarge={image.largeImageURL}

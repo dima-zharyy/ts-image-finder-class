@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface IFetchingData {
   total: number;
   totalHits: number;
@@ -69,4 +67,11 @@ export interface ISearchProps {
 export interface IModalProps {
   onClose: () => void;
   children: React.ReactNode;
+}
+
+export interface IItemProps {
+  imageLarge: string;
+  imageSrc: string;
+  imageAlt: string;
+  onClick: React.MouseEventHandler;
 }

@@ -55,9 +55,12 @@ export class App extends Component<{}, IAppState> {
     }
   }
 
-  handleOpenModal = (event: { target: HTMLImageElement }) => {
-    const { largeImageURL } = event.target.dataset;
-    const tags = event.target.alt;
+  handleOpenModal = (
+    event: React.MouseEvent | { target: HTMLImageElement }
+  ) => {
+    const target = event.target as HTMLImageElement & React.MouseEvent;
+    const { largeImageURL } = target.dataset;
+    const tags = target.alt;
 
     this.setState((prevState) => ({
       showModal: !prevState.showModal,

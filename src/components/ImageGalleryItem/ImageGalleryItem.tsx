@@ -1,8 +1,7 @@
-import React from 'react';
-import { Item, Image } from './ImageGalleryItem.styled';
-import PropTypes from 'prop-types';
+import { IItemProps } from "components/types/types";
+import { Item, Image } from "./ImageGalleryItem.styled";
 
-export const ImageGalleryItem = ({
+export const ImageGalleryItem: React.FC<IItemProps> = ({
   imageLarge,
   imageSrc,
   imageAlt,
@@ -19,11 +18,4 @@ export const ImageGalleryItem = ({
       />
     </Item>
   );
-};
-
-ImageGalleryItem.propTypes = {
-  imageLarge: PropTypes.string.isRequired,
-  imageSrc: PropTypes.string.isRequired,
-  imageAlt: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
 };
