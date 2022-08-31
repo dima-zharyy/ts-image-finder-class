@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface IFetchingData {
   total: number;
   totalHits: number;
@@ -42,7 +44,7 @@ export interface IAppState {
   imagesData: [] | IProperData;
   page: number;
   totalHits: number;
-  largeImageData: { largeImageURL: string | undefined; tags: string };
+  largeImageData: { largeImageUrl: string | undefined; tags: string };
   showModal: boolean;
   showSpinner: boolean;
 }
@@ -53,7 +55,7 @@ export interface ILoadButton {
 
 export interface IImagesList {
   images: IProperData;
-  onOpenModal: (event: { target: HTMLImageElement }) => void;
+  onOpenModal: (event: React.MouseEvent<HTMLImageElement>) => void;
 }
 
 export interface ISearch {

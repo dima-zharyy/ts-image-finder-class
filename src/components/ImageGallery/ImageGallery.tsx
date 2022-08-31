@@ -11,8 +11,7 @@ export const ImageGallery: React.FC<IImagesList> = ({
       {images.map((image) => {
         return (
           <ImageGalleryItem
-            onClick={(event: React.MouseEvent) =>
-              //@ts-ignore
+            onClick={(event: React.MouseEvent<HTMLImageElement>) =>
               onOpenModal(event)
             }
             imageSrc={image.webformatURL}

@@ -13,7 +13,7 @@ export class App extends Component<{}, IAppState> {
     imagesData: [],
     page: 1,
     totalHits: 0,
-    largeImageData: { largeImageURL: "", tags: "" },
+    largeImageData: { largeImageUrl: "", tags: "" },
     showModal: false,
     showSpinner: false,
   };
@@ -55,23 +55,20 @@ export class App extends Component<{}, IAppState> {
     }
   }
 
-  handleOpenModal = (
-    event: React.MouseEvent | { target: HTMLImageElement }
-  ) => {
-    const target = event.target as HTMLImageElement & React.MouseEvent;
-    const { largeImageURL } = target.dataset;
-    const tags = target.alt;
+  handleOpenModal = (event: React.MouseEvent<HTMLImageElement>) => {
+    const { largeImageUrl } = event.currentTarget.dataset;
+    const tags = event.currentTarget.alt;
 
     this.setState((prevState) => ({
       showModal: !prevState.showModal,
-      largeImageData: { largeImageURL, tags },
+      largeImageData: { largeImageUrl, tags },
     }));
   };
 
   handleCloseModal = () => {
     this.setState((prevState) => ({
       showModal: !prevState.showModal,
-      largeImageData: { largeImageURL: "", tags: "" },
+      largeImageData: { largeImageUrl: "", tags: "" },
     }));
   };
 
@@ -101,7 +98,7 @@ export class App extends Component<{}, IAppState> {
       totalHits,
       showModal,
       showSpinner,
-      largeImageData: { largeImageURL, tags },
+      largeImageData: { largeImageUrl, tags },
     } = this.state;
 
     return (
@@ -118,7 +115,7 @@ export class App extends Component<{}, IAppState> {
 
         {showModal ? (
           <Modal onClose={this.handleCloseModal}>
-            <img src={largeImageURL} alt={tags} />
+            <img src={largeImageUrl} alt={tags} />
           </Modal>
         ) : null}
 
